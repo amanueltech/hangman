@@ -1,0 +1,103 @@
+* { box-sizing: border-box; }
+body {
+  background: #1e1e2f;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px 15px 30px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+h1 {
+  margin: 0 0 10px 0;
+  color: #f5a623;
+  text-shadow: 1px 1px 5px #d17e00;
+  font-size: 2rem;
+}
+#difficulty-select {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #2a2a44;
+  color: #e0e0e0;
+  cursor: pointer;
+  max-width: 200px;
+  width: 100%;
+}
+#game-container {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  gap: 20px;
+}
+#left-panel, #right-panel {
+  background: #2a2a44;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+}
+#left-panel { flex: 1; display: flex; flex-direction: column; align-items: center; }
+#right-panel { flex-basis: 320px; display: flex; flex-direction: column; align-items: center; }
+#word {
+  font-size: 2.7rem;
+  letter-spacing: 0.2em;
+  margin: 15px 0 10px 0;
+}
+#letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+  max-width: 420px;
+  margin-bottom: 15px;
+}
+.letter-btn {
+  background: #1e1e2f;
+  border: none;
+  color: #e0e0e0;
+  font-size: 1.3rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 3px 5px #111;
+  transition: background-color 0.3s, transform 0.15s;
+}
+.letter-btn:hover:not(:disabled) { background: #f5a623; color: #1e1e2f; transform: scale(1.1); }
+.letter-btn:disabled { background: #55556f; color: #9999aa; cursor: default; }
+#message { margin: 12px 0 6px 0; font-size: 1.15rem; }
+#hint { margin-bottom: 15px; font-style: italic; color: #ffd966; min-height: 40px; }
+#hangman-draw { width: 130px; height: 180px; margin-bottom: 10px; }
+#reset-btn {
+  background: #f5a623;
+  color: #1e1e2f;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.15rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: auto;
+  width: 100%;
+  max-width: 260px;
+}
+#reset-btn:hover { background: #d17e00; transform: scale(1.05); }
+#scoreboard { margin-top: 20px; font-size: 1.2rem; color: #ffd966; }
+.show-part { visibility: visible !important; animation: fadeInScale 0.5s ease forwards; }
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.6); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@media (max-width: 780px) {
+  #game-container { flex-direction: column; align-items: center; }
+  #right-panel { width: 100%; margin-top: 25px; }
+}
+@media (max-width: 480px) {
+  #word { font-size: 2.2rem; }
+  .letter-btn { width: 34px; height: 34px; font-size: 1.1rem; }
+  #hangman-draw { width: 100px; height: 140px; }
+}

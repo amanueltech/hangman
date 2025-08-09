@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Hangman Game - Split Layout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Hangman Game</h1>
+
+<label for="difficulty-select">Choose difficulty:</label>
+<select id="difficulty-select" aria-label="Select difficulty level">
+  <option value="easy">Easy (3-4 letters)</option>
+  <option value="medium" selected>Medium (5-6 letters)</option>
+  <option value="hard">Hard (7-10 letters)</option>
+</select>
+
+<div id="game-container">
+  <section id="left-panel" aria-label="Word and letter selection">
+    <div id="word" aria-live="polite" aria-atomic="true">_ _ _ _ _</div>
+    <div id="letters" role="list" aria-label="Letter buttons"></div>
+    <div id="message" aria-live="polite" aria-atomic="true"></div>
+    <div id="hint" aria-live="polite" aria-atomic="true"></div>
+  </section>
+
+  <section id="right-panel" aria-label="Hangman drawing and controls">
+    <svg id="hangman-draw" viewBox="0 0 120 160" aria-hidden="true">
+      <line x1="10" y1="150" x2="110" y2="150" stroke="#f5a623" stroke-width="5" />
+      <line x1="30" y1="150" x2="30" y2="20" stroke="#f5a623" stroke-width="5" />
+      <line x1="30" y1="20" x2="90" y2="20" stroke="#f5a623" stroke-width="5" />
+      <line x1="90" y1="20" x2="90" y2="40" stroke="#f5a623" stroke-width="3" />
+      <circle id="head" cx="90" cy="50" r="12" stroke="#f5a623" stroke-width="4" fill="none" style="visibility:hidden"/>
+      <line id="body" x1="90" y1="62" x2="90" y2="100" stroke="#f5a623" stroke-width="4" style="visibility:hidden"/>
+      <line id="left-arm" x1="90" y1="75" x2="70" y2="85" stroke="#f5a623" stroke-width="4" style="visibility:hidden"/>
+      <line id="right-arm" x1="90" y1="75" x2="110" y2="85" stroke="#f5a623" stroke-width="4" style="visibility:hidden"/>
+      <line id="left-leg" x1="90" y1="100" x2="70" y2="125" stroke="#f5a623" stroke-width="4" style="visibility:hidden"/>
+      <line id="right-leg" x1="90" y1="100" x2="110" y2="125" stroke="#f5a623" stroke-width="4" style="visibility:hidden"/>
+    </svg>
+    <button id="reset-btn" aria-label="Restart Game">Restart Game</button>
+    <div id="scoreboard" aria-live="polite" aria-atomic="true"></div>
+  </section>
+</div>
+
+<audio id="sound-correct" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" preload="auto"></audio>
+<audio id="sound-wrong" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" preload="auto"></audio>
+<audio id="sound-win" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" preload="auto"></audio>
+<audio id="sound-lose" src="https://actions.google.com/sounds/v1/cartoon/boing.ogg" preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
